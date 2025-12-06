@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <input type="number" id="num1">
+<select id="operator">
+  <option value="+">+</option>
+  <option value="-">−</option>
+</select>
+<input type="number" id="num2">
+<button onclick="calculate()">=</button>
+<span id="result"></span>
+
+<script>
+  function calculate() {
+    const a = Number(document.getElementById('num1').value);
+    const b = Number(document.getElementById('num2').value);
+    const op = document.getElementById('operator').value;
+    let results;
+
+    if (op === '+') results = a + b;
+    else results = a - b;
+
+    document.getElementById('result').textContent = results;
+  }
+</script>
+</body>
+</html>
