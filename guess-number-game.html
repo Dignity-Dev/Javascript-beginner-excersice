@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess game</title>
+</head>
+
+<body>
+
+    <h1>Guess Number Game</h1>
+    <input type="number" id="guess" min="1" max="20">
+    <button onclick="checkGuess()">Guess!</button>
+    <p id="message"></p>
+    <p>Computer Choice is:<span id='c_choice'></span></p>
+
+    <script>
+        const secret = Math.floor(Math.random() * 20) + 1;
+
+        function checkGuess() {
+            const userGuess = Number(document.getElementById('guess').value);
+            const msg = document.getElementById('message');
+            const c_choice = document.getElementById('c_choice');
+
+            if (userGuess === secret) {
+                msg.textContent = "🎉 Correct!";
+                c_choice.textContent = secret;
+            } else if (userGuess < secret) {
+                msg.textContent = "🔼 Too low!";
+                c_choice.textContent = secret;
+            } else {
+                msg.textContent = "🔽 Too high!";
+                c_choice.textContent = secret;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
