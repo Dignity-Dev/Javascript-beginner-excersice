@@ -1,0 +1,41 @@
+<select id="category">
+    <option value=""></option>
+  <option value="motivation">Motivation</option>
+  <option value="funny">Funny</option>
+</select>
+<button onclick="generateQuote()">New Quote</button>
+<blockquote id="quote"></blockquote>
+
+<script>
+  const quotes = {
+    motivation: [
+        "The only way to do great work is to love what you do. – Steve Jobs",
+        "Success is not final. – Churchill",
+        "It always seems impossible until it's done. – Nelson Mandela",
+        "Don't watch the clock; do what it does. Keep going. – Sam Levenson",
+        "The future belongs to those who believe in the beauty of their dreams. – Eleanor Roosevelt",
+        "Your time is limited, so don't waste it living someone else's life. – Steve Jobs",
+        "The way to get started is to quit talking and begin doing. – Walt Disney",
+        "Push yourself, because no one else is going to do it for you."
+    ],
+    funny: [
+        "I'm not lazy, I'm in energy-saving mode.",
+        "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+        "I need a six-month vacation, twice a year.",
+        "My bed is a magical place where I suddenly remember everything I was supposed to do.",
+        "I used to think I was indecisive, but now I'm not so sure.",
+        "A clear conscience is usually the sign of a bad memory.",
+        "I'm on a seafood diet. I see food, and I eat it.",
+        "You're not lazy; you're just on standby for something awesome."
+    ]
+  };
+
+  function generateQuote() {
+    const category = document.getElementById('category').value;
+    const list = quotes[category];
+    const quote = list[Math.floor(Math.random() * list.length)];
+    document.getElementById('quote').textContent = quote;
+  }
+
+  generateQuote(); // initial load
+</script>
